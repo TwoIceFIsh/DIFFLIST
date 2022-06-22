@@ -25,27 +25,28 @@ async def compare(a: list, b: list):
             # 유사도 값 9.0 이상 등록
             if diff_ratio == 1.0:
                 line_list.append(
-                    f'{str(diff_ratio)}|{a_name}|{b_name}|{b_code}|Matched|{str(diff_ratio)}|{a_name}|{b_name}')
+                    f'{str(diff_ratio)}|{a_name}|{b_name}|{b_code}|Matched|{str(diff_ratio)}|{a_name}|{b_name}|{b_code}')
                 continue
 
             # 교집합
             if a_name in b_name or b_name in a_name:
                 line_list.append(
-                    f'{str(diff_ratio)}|{a_name}|{b_name}|{b_code}|Included|{str(diff_ratio)}|{a_name}|{b_name}')
+                    f'{str(diff_ratio)}|{a_name}|{b_name}|{b_code}|Included|{str(diff_ratio)}|{a_name}|{b_name}|{b_code}')
                 continue
 
             # 유사도 값 9.0 미만 등록
             if 0.9 < diff_ratio < 1.0:
                 line_list.append(
-                    f'{str(diff_ratio)}|{a_name}|{b_name}|{b_code}|Considerable|{str(diff_ratio)}|{a_name}|{b_name}')
+                    f'{str(diff_ratio)}|{a_name}|{b_name}|{b_code}|Considerable|{str(diff_ratio)}|{a_name}|{b_name}|{b_code}')
 
             # 유사도 값 9.0 미만 등록
             if diff_ratio < 0.9:
-                line_list.append(f'{str(diff_ratio)}|{a_name}|N/A|N/A|Not Matched|{str(diff_ratio)}|{a_name}|{b_name}')
+                line_list.append(
+                    f'{str(diff_ratio)}|{a_name}|N/A|N/A|Not Matched|{str(diff_ratio)}|{a_name}|{b_name}|{b_code}')
 
         datas = sorted(line_list, reverse=True)[0].split('|')
 
-        print(f'{i + 1}|{datas[1]}|{datas[2]}|{datas[3]}|{datas[4]}|{datas[5]}|{datas[6]}|{datas[7]}')
+        print(f'{i + 1}|{datas[1]}|{datas[2]}|{datas[3]}|{datas[4]}|{datas[5]}|{datas[6]}|{datas[7]}|{datas[8]}')
 
         line_list = []
 
