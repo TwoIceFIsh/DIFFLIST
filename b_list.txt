@@ -1,4 +1,4 @@
-soybean yellow leaf curl virus |9625
-Abacarus doctus |7379
-Abacarus euphoriae |5278
-Abgrallaspis kudhiensis |747
+soybean yellow leaf curl virus
+Abacarus doctus
+Abacarus euphoriae
+Abgrallaspis kudhiensis
