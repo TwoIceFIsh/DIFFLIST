@@ -1,3 +1,4 @@
+import asyncio
 import re
 from difflib import SequenceMatcher
 
@@ -5,7 +6,7 @@ a_list = open('./a_list.txt', 'r', encoding='utf-8').readlines()
 b_list = open('./b_list.txt', 'r', encoding='utf-8').readlines()
 
 
-def compare(a: list, b: list):
+async def compare(a: list, b: list):
     line_list = []
     # print(len(a))
     for i in range(0, len(a)):
@@ -24,4 +25,10 @@ def compare(a: list, b: list):
         line_list = []
 
 
-compare(a=a_list, b=b_list)
+async def main():
+    await asyncio.gather(
+        compare(a=a_list, b=b_list),
+        compare(a=a_list, b=b_list),
+        compare(a=a_list, b=b_list),
+        compare(a=a_list, b=b_list)
+    )
