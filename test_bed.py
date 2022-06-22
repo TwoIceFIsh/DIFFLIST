@@ -1,27 +1,31 @@
 from difflib import SequenceMatcher
 
 a_list = open('./a_list.txt', 'r', encoding='utf-8').readlines()
-
 b_list = open('./b_list.txt', 'r', encoding='utf-8').readlines()
 
 
 def compare(a: list, b: list):
     ratio = []
     output = []
-    for i in enumerate(a):
-        a_value = i[1].strip().replace(' ', '').lower().replace('-', '').replace('.', '').replace(',', '').replace(
+    print(len(a))
+    print(len(b))
+
+    for i in a:
+        a_value = i.strip().replace(' ', '').lower().replace('-', '').replace('.', '').replace(',', '').replace(
             '\n', '')
-        for x in enumerate(b):
-            b = x[1].strip().replace(' ', '').lower().split('|')
+        print(i.strip())
+        for x in b:
+            b = x.strip().replace(' ', '').lower().split('|')
             b_value = b[0]
-            try:
-                b_id = b[1].strip()
-            except:
-                print(x)
+
             ratio_value = str(round(float(SequenceMatcher(None, a_value, b_value).ratio()), 2))
-            ratio.append(ratio_value + '|' + i[1].strip() + '|' + x[1].strip())
+
+            ratio.append(ratio_value + '|' + i.strip() + '|' + x.strip())
+            print(x.strip())
+
         out_data = sorted(ratio, reverse=True)[0].split('|')
-        print(f'{out_data[0]} [{out_data[1]}] vs [{out_data[2]}/{out_data[3]}]')
+
+        out_data = []
         ratio = []
 
 
